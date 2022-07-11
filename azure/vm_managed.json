@@ -1,0 +1,76 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_pw_managed_vm_name": {
+            "defaultValue": "pw-managed-vm",
+            "type": "String"
+        },
+        "disks_pw_managed_vm_OsDisk_1_3c9fe8354f434095923e56fa63b1afcb_externalid": {
+            "defaultValue": "/subscriptions/ba4b77ad-22b9-458e-90b0-e79df58b6509/resourceGroups/pw-vm-rg/providers/Microsoft.Compute/disks/pw-managed-vm_OsDisk_1_3c9fe8354f434095923e56fa63b1afcb",
+            "type": "String"
+        },
+        "networkInterfaces_pw_managed_vm793_externalid": {
+            "defaultValue": "/subscriptions/ba4b77ad-22b9-458e-90b0-e79df58b6509/resourceGroups/pw-vm-rg/providers/Microsoft.Network/networkInterfaces/pw-managed-vm793",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2022-03-01",
+            "name": "[parameters('virtualMachines_pw_managed_vm_name')]",
+            "location": "eastus",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_B1s"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "Canonical",
+                        "offer": "UbuntuServer",
+                        "sku": "18.04-LTS",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Linux",
+                        "name": "[concat(parameters('virtualMachines_pw_managed_vm_name'), '_OsDisk_1_3c9fe8354f434095923e56fa63b1afcb')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('disks_pw_managed_vm_OsDisk_1_3c9fe8354f434095923e56fa63b1afcb_externalid')]"
+                        },
+                        "deleteOption": "Delete"
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_pw_managed_vm_name')]",
+                    "adminUsername": "pratik",
+                    "linuxConfiguration": {
+                        "disablePasswordAuthentication": false,
+                        "provisionVMAgent": true,
+                        "patchSettings": {
+                            "patchMode": "ImageDefault",
+                            "assessmentMode": "ImageDefault"
+                        }
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true,
+                    "requireGuestProvisionSignal": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_pw_managed_vm793_externalid')]",
+                            "properties": {
+                                "deleteOption": "Detach"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
