@@ -30,7 +30,7 @@
           "storageAutogrow": "Enabled"
         },
         "version": "11",
-        "sslEnforcement": "Enabled",
+        "sslEnforcement": "Disabled",
         "minimalTlsVersion": "TLSEnforcementDisabled",
         "infrastructureEncryption": "Disabled",
         "publicNetworkAccess": "Enabled"
