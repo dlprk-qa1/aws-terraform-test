@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_testfuncapp12334_name": {
-            "defaultValue": "testfuncapp12334",
+            "defaultValue": "testfuncapp123345",
             "type": "String"
         },
         "serverfarms_ASP_testrgsignal_9d65_externalid": {
