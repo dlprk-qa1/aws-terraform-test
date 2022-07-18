@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "servers_pw_postgres_server_name": {
-            "defaultValue": "bb-nc-postgres-server",
+            "defaultValue": "bb-nc-postgres-server1",
             "type": "String"
         }
     },

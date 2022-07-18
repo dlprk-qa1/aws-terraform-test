@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_ajtestwebapp1_name": {
-            "defaultValue": "ajtestwebapp1",
+            "defaultValue": "ajtestwebapp12",
             "type": "String"
         },
         "serverfarms_ASP_ajtest_8c13_externalid": {

@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "virtualMachines_pw_managed_vm_name": {
-            "defaultValue": "pw-managed-vm",
+            "defaultValue": "pw-managed-vm1",
             "type": "String"
         },
         "disks_pw_managed_vm_OsDisk_1_3c9fe8354f434095923e56fa63b1afcb_externalid": {
