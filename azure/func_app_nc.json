@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "sites_funak2_name": {
-            "defaultValue": "funak2",
+            "defaultValue": "funak23",
             "type": "String"
         },
         "serverfarms_ASP_aktest_b612_externalid": {
