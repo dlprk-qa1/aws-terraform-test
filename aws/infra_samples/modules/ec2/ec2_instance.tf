@@ -41,7 +41,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 ##################################################### Compliant Resources ######################################################################
 
 
-resource "aws_instance" "compliant_ec2_instance" {
+resource "aws_instance" "compliant_ec2_instance1" {
   count                     = var.infra_type == "compliant" ? var.var_count : 0
   vpc_security_group_ids    = [var.sg_id]
   ami                       = data.aws_ssm_parameter.amazon_linux_ami[count.index].value
